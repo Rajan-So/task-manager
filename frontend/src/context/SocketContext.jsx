@@ -12,7 +12,7 @@ export const SocketProvider = ({ children }) => {
     if (!user?.token) return;
 
     // Connect socket with JWT token
-    const newSocket = io('http://localhost:5000', {
+    const newSocket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000', {
       auth: { token: user.token },
     });
 
